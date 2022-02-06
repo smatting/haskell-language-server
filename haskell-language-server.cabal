@@ -331,28 +331,28 @@ executable haskell-language-server
                     , warnings
                     , pedantic
                     -- plugins
-                    , example-plugins
-                    , callHierarchy
-                    , class
-                    , haddockComments
-                    , eval
-                    , importLens
-                    , refineImports
-                    , rename
-                    , retrie
-                    , tactic
-                    , hlint
-                    , moduleName
-                    , pragmas
-                    , splice
+                    -- , example-plugins
+                    -- , callHierarchy
+                    -- , class
+                    -- , haddockComments
+                    -- , eval
+                    -- , importLens
+                    -- , refineImports
+                    -- , rename
+                    -- , retrie
+                    -- , tactic
+                    -- , hlint
+                    -- , moduleName
+                    -- , pragmas
+                    -- , splice
                     , alternateNumberFormat
-                    , qualifyImportedNames
-                    , selectionRange
-                    , floskell
-                    , fourmolu
-                    , ormolu
-                    , stylishHaskell
-                    , brittany
+                    -- , qualifyImportedNames
+                    -- , selectionRange
+                    -- , floskell
+                    -- , fourmolu
+                    -- , ormolu
+                    -- , stylishHaskell
+                    -- , brittany
 
   main-is:          Main.hs
   hs-source-dirs:   exe

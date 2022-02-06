@@ -1,0 +1,81 @@
+packages:
+         ./
+         ./hie-compat
+         ./shake-bench
+         ./hls-graph
+         ./ghcide
+         ./hls-plugin-api
+         ./hls-test-utils
+         ./patched/cereal
+         ./patched/primitive
+         ./patched/ghc-check
+         ./patched/hspec
+         ./patched/hspec/hspec-contrib
+         ./patched/hspec/hspec-core
+         ./patched/hspec/hspec-discover
+         ./patched/ghc-exactprint
+        -- ./plugins/hls-class-plugin
+        -- ./plugins/hls-explicit-imports-plugin
+        -- ./plugins/hls-refine-imports-plugin
+        -- ./plugins/hls-rename-plugin
+        -- ./plugins/hls-haddock-comments-plugin
+        -- ./plugins/hls-qualify-imported-names-plugin
+        -- ./plugins/hls-pragmas-plugin
+        -- ./plugins/hls-module-name-plugin
+        -- ./plugins/hls-call-hierarchy-plugin
+         ./plugins/hls-alternate-number-format-plugin
+        -- ./plugins/hls-selection-range-plugin
+
+with-compiler: ghc-9.3.20220205
+
+tests: true
+
+package *
+  ghc-options: -haddock
+  test-show-details: direct
+
+write-ghc-environment-files: never
+
+index-state: 2022-01-24T21:03:03Z
+
+constraints:
+  -- These plugins don't build/work on GHC92 yet
+  haskell-language-server
+    +ignore-plugins-ghc-bounds
+    -alternateNumberFormat
+    -- -class
+    -- -eval
+    -- -haddockComments
+    -- -splice
+
+allow-newer:
+  -- ghc-bignum,
+  -- ghc,
+  -- ghc-boot,
+  -- for shake-bench
+   Chart:lens,
+   Chart-diagrams:lens,
+
+  -- for head.hackage
+  -- primitive-unlifted:base,
+
+  -- https://github.com/lspitzner/data-tree-print/pull/3
+  -- https://github.com/lspitzner/multistate/pull/8
+  -- multistate:base,
+  -- data-tree-print:base,
+  -- https://github.com/lspitzner/butcher/pull/8
+  -- butcher:base,
+   retrie:ghc-exactprint,
+
+   implicit-hie-cradle:bytestring,
+   implicit-hie-cradle:time,
+
+   ghc-typelits-natnormalise:ghc-bignum,
+   integer-logarithms:ghc-bignum,
+   hashable:ghc-bignum,
+
+   hie-bios:ghc,
+   hiedb:base
+
+allow-older:
+  primitive-extras:primitive-unlifted
