@@ -39,6 +39,7 @@ common common-deps
     , extra
     , filepath
     , text
+    , prettyprinter
 
 -- Default warnings in HLS
 common warnings
@@ -442,6 +443,10 @@ executable haskell-language-server-wrapper
     , optparse-applicative
     , optparse-simple
     , process
+  if !os(windows)
+      build-depends:
+          unix
+        , containers
 
   default-language: Haskell2010
 
